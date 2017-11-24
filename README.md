@@ -1,2 +1,2 @@
 # react-loading-hoc
-HOC for to make React components loading.
+HOC to set React components to be loading.

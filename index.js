@@ -1,7 +1,7 @@
 const React = require('react');
 const PropTypes = require('prop-types');
 
-const ownSymbol = key => Symbol(`react-loading-hoc/${key}`);
+const ownSymbol = key => Symbol(`react-hoc-loading/${key}`);
 
 const defaultBaseComponent = ownSymbol('default-base-component');
 const defaultLoadingComponent = ownSymbol('default-loading-component');
@@ -22,19 +22,17 @@ function LoadingHOC(
         if (this.props.loading) {
           return React.createElement(
             LoadingComponent,
-            Object.assign(props, { className })
+            Object.assign(props, { className: props.className || className })
           );
         }
         return undefined;
       }
     };
 
-    // Add loading PropType if the base Component uses PropTypes
-    if (Component.propTypes) {
-      Loading.propTypes = Object.assign(Component.propTypes, {
-        loading: loadingPropOptional ? PropTypes.bool : PropTypes.bool.isRequired
-      });
-    }
+    // Add loading PropType
+    Loading.propTypes = Object.assign(Component.propTypes || {}, {
+      loading: loadingPropOptional ? PropTypes.bool : PropTypes.bool.isRequired
+    });
 
     // Change the display name
     let displayName = Component.displayName || Component.name;

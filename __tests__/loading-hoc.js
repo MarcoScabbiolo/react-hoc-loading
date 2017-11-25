@@ -95,7 +95,7 @@ describe('loading-hoc', () => {
 
   test('changes default component', () => {
     let baseComponentSymbol = Object.getOwnPropertySymbols(loading)
-      .find(s => s.toString() === 'Symbol(react-loading-hoc/default-base-component)');
+      .find(s => s.toString() === 'Symbol(react-hoc-loading/default-base-component)');
     chai.expect(loading[baseComponentSymbol]).not.to.equal(React.Component);
     loading.setDefaultBaseComponent(React.Component);
     chai.expect(loading[baseComponentSymbol]).to.equal(React.Component);

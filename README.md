@@ -132,6 +132,7 @@ type LoadingOptions = {
 ```
 
 Sets the default `LoadingComponent` option globally.
+By default it is `() => <div>Loading</div>`
 
 #### `Loading.setDefaultBaseComponent`
 

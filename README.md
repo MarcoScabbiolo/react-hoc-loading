@@ -123,7 +123,7 @@ type LoadingOptions = {
 |`LoadingComponent`|Set with `Loading.setDefaultLoadingComponent`|The component that will be rendered when calling `renderLoading`|
 |`className`|`undefined`|A CSS class that will be passed to the component rendered with `renderLoading`|
 |`loadingPropOptional`|`false`|Makes the `loading` property of the resulting `Component` optional instead of required using PropTypes|
-|`fullDisplayName`|false|If true the `displayName` of the resulting component will be `Loadable(Component)` instead of `Component`|
+|`fullDisplayName`|`false`|If true the `displayName` of the resulting component will be `'Loadable(Component)'` instead of `'Component'`|
 
 #### `Loading.setDefaultLoadingComponent`
 

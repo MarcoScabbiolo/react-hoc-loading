@@ -17,9 +17,9 @@
   "author": "Marco Scabbiolo, scabbiolo.marco@gmail.com",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/MarcoScabbiolo/react-loading-hoc/issues"
+    "url": "https://github.com/MarcoScabbiolo/react-hoc-loading/issues"
   },
-  "homepage": "https://github.com/MarcoScabbiolo/react-loading-hoc#readme",
+  "homepage": "https://github.com/MarcoScabbiolo/react-hoc-loading#readme",
   "dependencies": {
     "prop-types": "^15.6.0",
     "react": "^16.1.1"

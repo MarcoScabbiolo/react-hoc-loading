@@ -17,7 +17,7 @@ With [decorators][decorators].
 import Loading from 'react-hoc-loading';
 import React from 'react';
 
-@Loading({ LoadingComponent: <span>Loading...</span> })
+@Loading({ LoadingComponent: () => <span>Loading...</span> })
 class MyComponent extends React.Component {
   render() {
     return (
@@ -144,7 +144,7 @@ Sets the default component passed to the HOC as its first argument. Be default i
 
 [coveralls]: https://coveralls.io/github/MarcoScabbiolo/react-hoc-loading?branch=master
 [coveralls-badge]: https://coveralls.io/repos/github/MarcoScabbiolo/react-hoc-loading/badge.svg?branch=master
-[travis-badge]: https://travis-ci.org/MarcoScabbiolo/react-loading-hoc.svg?branch=master
+[travis-badge]: https://travis-ci.org/MarcoScabbiolo/react-hoc-loading.svg?branch=master
 [dependencies-badge]: https://david-dm.org/MarcoScabbiolo/react-hoc-loading.svg
 [codeclimate-badge]: https://api.codeclimate.com/v1/badges/a7b8a58c28791334fc94/maintainability
 [codeclimate]: https://codeclimate.com/github/MarcoScabbiolo/react-hoc-loading/maintainability

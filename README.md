@@ -14,10 +14,10 @@ npm install --save react-hoc-loading
 With [decorators][decorators].
 
 ```javascript
-import Loading from 'react-hoc-loading';
+import loading from 'react-hoc-loading';
 import React from 'react';
 
-@Loading({ LoadingComponent: () => <span>Loading...</span> })
+@loading({ LoadingComponent: () => <span>Loading...</span> })
 class MyComponent extends React.Component {
   render() {
     return (
@@ -35,9 +35,9 @@ class MyComponent extends React.Component {
 #### Set a default `LoadingComponent` globally with `.setDefaultLoadingComponent`
 
 ```javascript
-Loading.setDefaultLoadingComponent(() => <img src="loading.gif" />);
+loading.setDefaultLoadingComponent(() => <img src="loading.gif" />);
 
-@Loading()
+@loading()
 class MyComponent extends React.Component { ... }
 
 <MyComponent loading> // <div><img src="loading.gif" /></div>
@@ -46,9 +46,9 @@ class MyComponent extends React.Component { ... }
 #### Use different CSS classes for different components with the `className` option
 
 ```javascript
-Loading.setDefaultLoadingComponent(className => <img className={className} src="loading.gif" />);
+loading.setDefaultLoadingComponent(className => <img className={className} src="loading.gif" />);
 
-@Loading({ className: "my-class" })
+@loading({ className: "my-class" })
 class MyComponent extends React.Component { ... }
 
 <MyComponent loading> // <div><img className="my-class" src="loading.gif" /></div>
@@ -57,7 +57,7 @@ class MyComponent extends React.Component { ... }
 #### Pass props to the `LoadingComponent` when calling `this.renderLoading`
 
 ```javascript
-Loading.setDefaultLoadingComponent((message, className) => (
+loading.setDefaultLoadingComponent((message, className) => (
   <div>
     <div>
       <img className={className} src="loading.gif" />
@@ -66,7 +66,7 @@ Loading.setDefaultLoadingComponent((message, className) => (
   </div>
 ));
 
-@Loading({ className: 'my-class' })
+@loading({ className: 'my-class' })
 class MyComponent extends React.Component {
   render() {
     return (
@@ -91,7 +91,7 @@ class MyComponent extends React.Component {
 
 ## Reference
 
-#### `Loading`
+#### `loading`
 
 ```javascript 
 (options: LoadingOptions) => (Component: React.ComponentType<any>) => React.ComponentType<any>
@@ -105,7 +105,7 @@ A function that takes some `options` and returns a HOC that will extend `Compone
 (props: object) => React.Element<typeof LoadingComponent>
 ```
 
-It is a method of the extended component returned by `Loading()()`. Returns the `LoadingComponent` element if `this.props.loading` is true. The `className` passed to `renderLoading` will override the one passed in `LoadingOptions`.
+It is a method of the extended component returned by `loading()()`. Returns the `LoadingComponent` element if `this.props.loading` is true. The `className` passed to `renderLoading` will override the one passed in `LoadingOptions`.
 
 #### `LoadingOptions`
 
@@ -120,12 +120,12 @@ type LoadingOptions = {
 
 |Option|Default|Description|
 |-|-|-|
-|`LoadingComponent`|Set with `Loading.setDefaultLoadingComponent`|The component that will be rendered when calling `renderLoading`|
+|`LoadingComponent`|Set with `loading.setDefaultLoadingComponent`|The component that will be rendered when calling `renderLoading`|
 |`className`|`undefined`|A CSS class that will be passed to the component rendered with `renderLoading`|
 |`loadingPropOptional`|`false`|Makes the `loading` property of the resulting `Component` optional instead of required using PropTypes|
 |`fullDisplayName`|`false`|If true the `displayName` of the resulting component will be `'Loadable(Component)'` instead of `'Component'`|
 
-#### `Loading.setDefaultLoadingComponent`
+#### `loading.setDefaultLoadingComponent`
 
 ```javascript
 (DefaultComponent: React.ComponentType<any>) => void
@@ -134,7 +134,7 @@ type LoadingOptions = {
 Sets the default `LoadingComponent` option globally.
 By default it is `() => <div>Loading</div>`
 
-#### `Loading.setDefaultBaseComponent`
+#### `loading.setDefaultBaseComponent`
 
 ```javascript
 (DefaultBaseComponent: React.ComponentType<any>) => void

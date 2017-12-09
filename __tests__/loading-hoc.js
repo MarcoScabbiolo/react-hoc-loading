@@ -94,15 +94,15 @@ describe('loading-hoc', () => {
   })
 
   test('changes default component', () => {
-    let baseComponentSymbol = Object.getOwnPropertySymbols(loading)
-      .find(s => s.toString() === 'Symbol(react-hoc-loading/default-base-component)');
-    chai.expect(loading[baseComponentSymbol]).not.to.equal(React.Component);
+    chai.expect(loading.getDefaultBaseComponent()).not.to.equal(React.Component);
     loading.setDefaultBaseComponent(React.Component);
-    chai.expect(loading[baseComponentSymbol]).to.equal(React.Component);
+    chai.expect(loading.getDefaultBaseComponent()).to.equal(React.Component);
   });
 
   test('changes default loading component', () => {
-    loading.setDefaultLoadingComponent(() => <span>__test__</span>);
+    const newLoadingComponent = () => <span>__test__</span>;
+    loading.setDefaultLoadingComponent(newLoadingComponent);
+    chai.expect(loading.getDefaultLoadingComponent()).to.equal(newLoadingComponent);
     const Loading = loading()(TestClass);
     let wrapper = shallow(<Loading loading />);
     chai.expect(wrapper.html()).to.equal('<div><span>__test__</span></div>');

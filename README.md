@@ -142,6 +142,7 @@ By default it is `() => <div>Loading</div>`
 
 Sets the default component passed to the HOC as its first argument. Be default it is `React.PureComponent`, but you will  always pass your own component to the HOC unless you're doing something funky.
 
+
 [coveralls]: https://coveralls.io/github/MarcoScabbiolo/react-hoc-loading?branch=master
 [coveralls-badge]: https://coveralls.io/repos/github/MarcoScabbiolo/react-hoc-loading/badge.svg?branch=master
 [travis-badge]: https://travis-ci.org/MarcoScabbiolo/react-hoc-loading.svg?branch=master

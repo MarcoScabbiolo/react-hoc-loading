@@ -1,10 +1,8 @@
 const React = require('react');
 const PropTypes = require('prop-types');
 
-const ownSymbol = key => Symbol(`react-hoc-loading/${key}`);
-
-const defaultBaseComponent = ownSymbol('default-base-component');
-const defaultLoadingComponent = ownSymbol('default-loading-component');
+var defaultLoadingComponent = () => React.createElement('div', null, 'Loading');
+var defaultBaseComponent = React.PureComponent;
 
 function LoadingHOC(
   {
@@ -14,9 +12,9 @@ function LoadingHOC(
     fullDisplayName = false
   } = {}
 ) {
-  LoadingComponent = LoadingComponent || LoadingHOC[defaultLoadingComponent];
+  LoadingComponent = LoadingComponent || defaultLoadingComponent;
 
-  return function(Component = LoadingHOC[defaultBaseComponent]) {
+  return function(Component = defaultBaseComponent) {
     const Loading = class extends Component {
       renderLoading(props = {}) {
         if (this.props.loading) {
@@ -42,15 +40,17 @@ function LoadingHOC(
   };
 }
 
-LoadingHOC[defaultLoadingComponent] = () => React.createElement('div', null, 'Loading');
-
-LoadingHOC[defaultBaseComponent] = React.PureComponent;
-
+LoadingHOC.getDefaultBaseComponent = function() {
+  return defaultBaseComponent;
+};
 LoadingHOC.setDefaultBaseComponent = function(Component) {
-  LoadingHOC[defaultBaseComponent] = Component;
+  defaultBaseComponent = Component;
+};
+LoadingHOC.getDefaultLoadingComponent = function() {
+  return defaultLoadingComponent;
 };
 LoadingHOC.setDefaultLoadingComponent = function(Component) {
-  LoadingHOC[defaultLoadingComponent] = Component;
+  defaultLoadingComponent = Component;
 };
 
 module.exports = LoadingHOC;

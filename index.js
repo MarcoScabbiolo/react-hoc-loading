@@ -4,7 +4,7 @@ const PropTypes = require('prop-types');
 var defaultLoadingComponent = () => React.createElement('div', null, 'Loading');
 var defaultBaseComponent = React.PureComponent;
 
-function LoadingHOC(
+function loading(
   {
     LoadingComponent,
     className,
@@ -40,17 +40,17 @@ function LoadingHOC(
   };
 }
 
-LoadingHOC.getDefaultBaseComponent = function() {
+loading.getDefaultBaseComponent = function() {
   return defaultBaseComponent;
 };
-LoadingHOC.setDefaultBaseComponent = function(Component) {
+loading.setDefaultBaseComponent = function(Component) {
   defaultBaseComponent = Component;
 };
-LoadingHOC.getDefaultLoadingComponent = function() {
+loading.getDefaultLoadingComponent = function() {
   return defaultLoadingComponent;
 };
-LoadingHOC.setDefaultLoadingComponent = function(Component) {
+loading.setDefaultLoadingComponent = function(Component) {
   defaultLoadingComponent = Component;
 };
 
-module.exports = LoadingHOC;
+module.exports = loading;

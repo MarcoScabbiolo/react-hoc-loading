@@ -5,7 +5,6 @@ import loading from '../index';
 import reactTestUtils from 'react-dom/test-utils';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { exec } from 'child_process';
 
 configure({ adapter: new Adapter() });
 

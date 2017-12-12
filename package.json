@@ -1,6 +1,6 @@
 {
   "name": "react-hoc-loading",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "HOC for React components that can be loading",
   "main": "index.js",
   "scripts": {

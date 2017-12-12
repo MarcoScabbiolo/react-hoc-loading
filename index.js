@@ -4,22 +4,18 @@ const PropTypes = require('prop-types');
 var defaultLoadingComponent = () => React.createElement('div', null, 'Loading');
 var defaultBaseComponent = React.PureComponent;
 
-function loading(
-  {
-    LoadingComponent,
-    className,
-    loadingPropOptional = false,
-    fullDisplayName = false
-  } = {}
-) {
-  LoadingComponent = LoadingComponent || defaultLoadingComponent;
-
+function loading({
+  LoadingComponent,
+  className,
+  loadingPropOptional = false,
+  fullDisplayName = false
+} = {}) {
   return function(Component = defaultBaseComponent) {
     const Loading = class extends Component {
       renderLoading(props = {}) {
         if (this.props.loading) {
           return React.createElement(
-            LoadingComponent,
+            LoadingComponent || defaultLoadingComponent,
             Object.assign(props, { className: props.className || className })
           );
         }

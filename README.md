@@ -46,7 +46,7 @@ class MyComponent extends React.Component { ... }
 #### Use different CSS classes for different components with the `className` option
 
 ```javascript
-loading.setDefaultLoadingComponent(className => <img className={className} src="loading.gif" />);
+loading.setDefaultLoadingComponent(({ className }) => <img className={className} src="loading.gif" />);
 
 @loading({ className: "my-class" })
 class MyComponent extends React.Component { ... }
@@ -57,7 +57,7 @@ class MyComponent extends React.Component { ... }
 #### Pass props to the `LoadingComponent` when calling `this.renderLoading`
 
 ```javascript
-loading.setDefaultLoadingComponent((message, className) => (
+loading.setDefaultLoadingComponent(({ message, className }) => (
   <div>
     <div>
       <img className={className} src="loading.gif" />
